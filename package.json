@@ -1,0 +1,23 @@
+{
+  "name": "welcome-to-nigeria-travel-booking",
+  "version": "1.0.0",
+  "description": "Professional travel booking portal for Welcome to Nigeria",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "travel",
+    "tourism",
+    "booking",
+    "nigeria"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
