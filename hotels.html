@@ -1,9 +1,301 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hotels & Accommodation | Welcome to Nigeria</title><meta name="description" content="Search hotels and accommodation through Welcome to Nigeria's provider-ready travel portal."><link rel="stylesheet" href="style.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
-<header class="site-header" id="header"><div class="top-bar"><div class="container top-bar-content"><div class="top-info"><span>Discover Nigeria</span><span class="top-divider">|</span><span>Travel • Tourism • Business • Events</span></div><div class="top-contact"><a href="tel:+2348096430859">+234 809 643 0859</a><a href="mailto:info@welcometonigerialtd.org">info@welcometonigerialtd.org</a></div></div></div><nav class="navbar"><div class="container nav-content"><a href="index.html" class="logo"><div class="logo-mark"><span>W</span><span>N</span></div><div class="logo-text"><strong>Welcome to</strong><span>NIGERIA</span></div></a><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-menu" id="navMenu"><a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="explore.html" class="nav-link">Explore Nigeria</a><div class="nav-travel-group"><div class="nav-travel-group"><div class="nav-travel-group"><a href="travel.html" class="nav-link">Travel & Tourism</a><div class="nav-travel-dropdown"><a href="flights.html">Flights</a><a href="hotels.html">Hotels & Accommodation</a><a href="transfers.html">Airport Transfers</a></div></div><div class="nav-travel-dropdown"><a href="flights.html">Flights</a><a href="hotels.html">Hotels & Accommodation</a><a href="transfers.html">Airport Transfers</a></div></div><div class="nav-travel-dropdown"><a href="flights.html">Flights</a><a href="hotels.html">Hotels & Accommodation</a><a href="transfers.html">Airport Transfers</a></div></div><a href="tours.html" class="nav-link">Tours & Packages</a><a href="events.html" class="nav-link">Events & Expo</a><a href="business.html" class="nav-link">Business & Partnerships</a><a href="resources.html" class="nav-link">Resources</a><a href="contact.html" class="nav-cta">Contact</a></div></div></nav></header>
-<main><section class="section portal-hero hotel-portal-hero"><div class="container portal-hero-content"><span class="eyebrow light">HOTELS & ACCOMMODATION</span><h1>Stay somewhere that feels <em>right.</em></h1><p>Search hotels, apartments, lodges, resorts and short-stay properties when a real accommodation provider is connected.</p></div></section><section class="section booking-page-section"><div class="container"><div class="booking-shell dedicated-search-shell"><form id="dedicatedHotelSearchForm" class="booking-form"><div class="form-row booking-form-row"><div class="form-group"><label for="dedicatedHotelDestination">Destination</label><input id="dedicatedHotelDestination" type="text" name="destination" placeholder="City, hotel or area" required></div><div class="form-group"><label for="dedicatedHotelCheckIn">Check-in</label><input id="dedicatedHotelCheckIn" type="date" name="checkIn" required></div><div class="form-group"><label for="dedicatedHotelCheckOut">Check-out</label><input id="dedicatedHotelCheckOut" type="date" name="checkOut" required></div></div><div class="form-row booking-form-row"><div class="form-group"><label for="dedicatedHotelGuests">Guests</label><select id="dedicatedHotelGuests" name="adults"><option value="1">1 Adult</option><option value="2" selected>2 Adults</option><option value="3">3 Adults</option><option value="4">4 Adults</option></select></div><div class="form-group"><label for="dedicatedHotelRooms">Rooms</label><select id="dedicatedHotelRooms" name="rooms"><option value="1" selected>1 Room</option><option value="2">2 Rooms</option><option value="3">3 Rooms</option></select></div></div><button class="btn btn-primary booking-submit-btn" type="submit">Search Hotels</button></form></div><div class="section-heading destination-heading"><div><span class="eyebrow">DESTINATION INSPIRATION</span><h2>Find your next <em>base.</em></h2></div><p>Explore places travellers ask about. Property availability and hotel counts will come from a connected provider.</p></div><div class="destination-photo-grid"><article class="destination-photo-card"><img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=900&q=80" alt="Abuja city skyline"><div><span>Nigeria</span><h3>Abuja</h3><p>Calm city stays, culture and access to the capital.</p><a href="#hotelResults">Explore stays →</a></div></article><article class="destination-photo-card"><img src="https://images.unsplash.com/photo-1568428494232-9b5b3f2e9b18?auto=format&fit=crop&w=900&q=80" alt="Lagos waterfront skyline"><div><span>Nigeria</span><h3>Lagos</h3><p>Energy, business, beaches and memorable city breaks.</p><a href="#hotelResults">Explore stays →</a></div></article><article class="destination-photo-card"><img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80" alt="Calabar tropical landscape"><div><span>Nigeria</span><h3>Calabar</h3><p>Heritage, greenery and a gentler coastal rhythm.</p><a href="#hotelResults">Explore stays →</a></div></article><article class="destination-photo-card"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80" alt="Dubai skyline at dusk"><div><span>United Arab Emirates</span><h3>Dubai</h3><p>Modern city escapes, shopping and global connections.</p><a href="#hotelResults">Explore stays →</a></div></article><article class="destination-photo-card"><img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80" alt="London city landmark"><div><span>United Kingdom</span><h3>London</h3><p>Culture, history and easy access to the wider UK.</p><a href="#hotelResults">Explore stays →</a></div></article><article class="destination-photo-card"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=80" alt="Nairobi landscape with wildlife"><div><span>Kenya</span><h3>Nairobi</h3><p>A city gateway to Kenya's varied experiences.</p><a href="#hotelResults">Explore stays →</a></div></article></div><div id="dedicatedHotelResults" class="booking-results dedicated-results" aria-live="polite"><div class="booking-empty-state"><h4>Accommodation search is ready</h4><p>Search results will appear here when a real hotel provider is connected. No availability or prices are invented.</p></div></div></div></section></main>
-<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a href="index.html" class="logo footer-logo"><div class="logo-mark"><span>W</span><span>N</span></div><div class="logo-text"><strong>Welcome to</strong><span>NIGERIA</span></div></a><p>Travel. Tourism. Events. Business. Discover Nigeria with us.</p></div><div class="footer-column"><h4>Travel</h4><a href="flights.html">Flights</a><a href="hotels.html">Hotels & Accommodation</a><a href="transfers.html">Airport Transfers</a></div><div class="footer-column"><h4>Explore</h4><a href="explore.html">Explore Nigeria</a><a href="tours.html">Tours & Packages</a><a href="contact.html">Contact</a></div><div class="footer-column"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms & Conditions</a><a href="refund.html">Refund & Cancellation</a></div></div><div class="footer-bottom"><p>© 2026 Welcome to Nigeria Ltd. All Rights Reserved.</p><p>Abuja, Federal Capital Territory, Nigeria</p></div></div></footer><div class="toast" id="toast"><span class="toast-icon">✓</span><div><strong id="toastTitle">Submitted</strong><p id="toastMessage">Your request has been submitted.</p></div></div><script src="script.js"></script><script src="travel-pages.js"></script></body></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotels & Accommodation | Welcome to Nigeria</title>
+    <meta
+      name="description"
+      content="Search hotels and accommodation through Welcome to Nigeria's provider-ready travel portal."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header" id="header">
+      <div class="top-bar">
+        <div class="container top-bar-content">
+          <div class="top-info">
+            <span>Discover Nigeria</span><span class="top-divider">|</span
+            ><span>Travel • Tourism • Business • Events</span>
+          </div>
+          <div class="top-contact">
+            <a href="tel:+2348096430859">+234 809 643 0859</a
+            ><a href="mailto:info@welcometonigerialtd.org"
+              >info@welcometonigerialtd.org</a
+            >
+          </div>
+        </div>
+      </div>
+      <nav class="navbar">
+        <div class="container nav-content">
+          <a href="index.html" class="logo"
+            ><div class="logo-mark"><span>W</span><span>N</span></div>
+            <div class="logo-text">
+              <strong>Welcome to</strong><span>NIGERIA</span>
+            </div></a
+          ><button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+          <div class="nav-menu" id="navMenu">
+            <a href="index.html" class="nav-link">Home</a
+            ><a href="about.html" class="nav-link">About</a
+            ><a href="explore.html" class="nav-link">Explore Nigeria</a>
+            <div class="nav-travel-group">
+              <div class="nav-travel-group">
+                <div class="nav-travel-group">
+                  <a href="travel.html" class="nav-link">Travel & Tourism</a>
+                  <div class="nav-travel-dropdown">
+                    <a href="flights.html">Flights</a
+                    ><a href="hotels.html">Hotels & Accommodation</a
+                    ><a href="transfers.html">Airport Transfers</a>
+                  </div>
+                </div>
+                <div class="nav-travel-dropdown">
+                  <a href="flights.html">Flights</a
+                  ><a href="hotels.html">Hotels & Accommodation</a
+                  ><a href="transfers.html">Airport Transfers</a>
+                </div>
+              </div>
+              <div class="nav-travel-dropdown">
+                <a href="flights.html">Flights</a
+                ><a href="hotels.html">Hotels & Accommodation</a
+                ><a href="transfers.html">Airport Transfers</a>
+              </div>
+            </div>
+            <a href="tours.html" class="nav-link">Tours & Packages</a
+            ><a href="events.html" class="nav-link">Events & Expo</a
+            ><a href="business.html" class="nav-link">Business & Partnerships</a
+            ><a href="resources.html" class="nav-link">Resources</a
+            ><a href="contact.html" class="nav-cta">Contact</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="section portal-hero hotel-portal-hero">
+        <div class="container portal-hero-content">
+          <span class="eyebrow light">HOTELS & ACCOMMODATION</span>
+          <h1>Stay somewhere that feels <em>right.</em></h1>
+          <p>
+            Search hotels, apartments, lodges, resorts and short-stay properties
+            when a real accommodation provider is connected.
+          </p>
+        </div>
+      </section>
+      <section class="section booking-page-section">
+        <div class="container">
+          <div class="booking-shell dedicated-search-shell">
+            <form id="dedicatedHotelSearchForm" class="booking-form">
+              <div class="form-row booking-form-row">
+                <div class="form-group">
+                  <label for="dedicatedHotelDestination">Destination</label
+                  ><input
+                    id="dedicatedHotelDestination"
+                    type="text"
+                    name="destination"
+                    placeholder="City, hotel or area"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="dedicatedHotelCheckIn">Check-in</label
+                  ><input
+                    id="dedicatedHotelCheckIn"
+                    type="date"
+                    name="checkIn"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="dedicatedHotelCheckOut">Check-out</label
+                  ><input
+                    id="dedicatedHotelCheckOut"
+                    type="date"
+                    name="checkOut"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-row booking-form-row">
+                <div class="form-group">
+                  <label for="dedicatedHotelGuests">Guests</label
+                  ><select id="dedicatedHotelGuests" name="adults">
+                    <option value="1">1 Adult</option>
+                    <option value="2" selected>2 Adults</option>
+                    <option value="3">3 Adults</option>
+                    <option value="4">4 Adults</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="dedicatedHotelRooms">Rooms</label
+                  ><select id="dedicatedHotelRooms" name="rooms">
+                    <option value="1" selected>1 Room</option>
+                    <option value="2">2 Rooms</option>
+                    <option value="3">3 Rooms</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-primary booking-submit-btn" type="submit">
+                Search Hotels
+              </button>
+            </form>
+          </div>
+          <div class="section-heading destination-heading">
+            <div>
+              <span class="eyebrow">DESTINATION INSPIRATION</span>
+              <h2>Find your next <em>base.</em></h2>
+            </div>
+            <p>
+              Explore places travellers ask about. Property availability and
+              hotel counts will come from a connected provider.
+            </p>
+          </div>
+          <div class="destination-photo-grid">
+            <article class="destination-photo-card">
+              <img
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=900&q=80"
+                alt="Abuja city skyline"
+              />
+              <div>
+                <span>Nigeria</span>
+                <h3>Abuja</h3>
+                <p>Calm city stays, culture and access to the capital.</p>
+                <a href="#hotelResults">Explore stays →</a>
+              </div>
+            </article>
+            <article class="destination-photo-card">
+              <img
+                src="https://images.unsplash.com/photo-1568428494232-9b5b3f2e9b18?auto=format&fit=crop&w=900&q=80"
+                alt="Lagos waterfront skyline"
+              />
+              <div>
+                <span>Nigeria</span>
+                <h3>Lagos</h3>
+                <p>Energy, business, beaches and memorable city breaks.</p>
+                <a href="#hotelResults">Explore stays →</a>
+              </div>
+            </article>
+            <article class="destination-photo-card">
+              <img
+                src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80"
+                alt="Calabar tropical landscape"
+              />
+              <div>
+                <span>Nigeria</span>
+                <h3>Calabar</h3>
+                <p>Heritage, greenery and a gentler coastal rhythm.</p>
+                <a href="#hotelResults">Explore stays →</a>
+              </div>
+            </article>
+            <article class="destination-photo-card">
+              <img
+                src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80"
+                alt="Dubai skyline at dusk"
+              />
+              <div>
+                <span>United Arab Emirates</span>
+                <h3>Dubai</h3>
+                <p>Modern city escapes, shopping and global connections.</p>
+                <a href="#hotelResults">Explore stays →</a>
+              </div>
+            </article>
+            <article class="destination-photo-card">
+              <img
+                src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80"
+                alt="London city landmark"
+              />
+              <div>
+                <span>United Kingdom</span>
+                <h3>London</h3>
+                <p>Culture, history and easy access to the wider UK.</p>
+                <a href="#hotelResults">Explore stays →</a>
+              </div>
+            </article>
+            <article class="destination-photo-card">
+              <img
+                src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=80"
+                alt="Nairobi landscape with wildlife"
+              />
+              <div>
+                <span>Kenya</span>
+                <h3>Nairobi</h3>
+                <p>A city gateway to Kenya's varied experiences.</p>
+                <a href="#hotelResults">Explore stays →</a>
+              </div>
+            </article>
+          </div>
+          <div
+            id="dedicatedHotelResults"
+            class="booking-results dedicated-results"
+            aria-live="polite"
+          >
+            <div class="booking-empty-state">
+              <h4>Accommodation search is ready</h4>
+              <p>
+                Search results will appear here when a real hotel provider is
+                connected. No availability or prices are invented.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="logo footer-logo"
+              ><div class="logo-mark"><span>W</span><span>N</span></div>
+              <div class="logo-text">
+                <strong>Welcome to</strong><span>NIGERIA</span>
+              </div></a
+            >
+            <p>Travel. Tourism. Events. Business. Discover Nigeria with us.</p>
+          </div>
+          <div class="footer-column">
+            <h4>Travel</h4>
+            <a href="flights.html">Flights</a
+            ><a href="hotels.html">Hotels & Accommodation</a
+            ><a href="transfers.html">Airport Transfers</a>
+          </div>
+          <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="explore.html">Explore Nigeria</a
+            ><a href="tours.html">Tours & Packages</a
+            ><a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <a href="privacy.html">Privacy Policy</a
+            ><a href="terms.html">Terms & Conditions</a
+            ><a href="refund.html">Refund & Cancellation</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Welcome to Nigeria Ltd. All Rights Reserved.</p>
+          <p>Abuja, Federal Capital Territory, Nigeria</p>
+        </div>
+      </div>
+    </footer>
+    <div class="toast" id="toast">
+      <span class="toast-icon">✓</span>
+      <div>
+        <strong id="toastTitle">Submitted</strong>
+        <p id="toastMessage">Your request has been submitted.</p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="travel-pages.js"></script>
+  </body>
+</html>

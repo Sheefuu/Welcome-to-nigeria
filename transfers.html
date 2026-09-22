@@ -1,9 +1,261 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Airport Transfers | Welcome to Nigeria</title><meta name="description" content="Search airport pickup and transfer options through Welcome to Nigeria's provider-ready travel portal."><link rel="stylesheet" href="style.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
-<header class="site-header" id="header"><div class="top-bar"><div class="container top-bar-content"><div class="top-info"><span>Discover Nigeria</span><span class="top-divider">|</span><span>Travel • Tourism • Business • Events</span></div><div class="top-contact"><a href="tel:+2348096430859">+234 809 643 0859</a><a href="mailto:info@welcometonigerialtd.org">info@welcometonigerialtd.org</a></div></div></div><nav class="navbar"><div class="container nav-content"><a href="index.html" class="logo"><div class="logo-mark"><span>W</span><span>N</span></div><div class="logo-text"><strong>Welcome to</strong><span>NIGERIA</span></div></a><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-menu" id="navMenu"><a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="explore.html" class="nav-link">Explore Nigeria</a><div class="nav-travel-group"><div class="nav-travel-group"><div class="nav-travel-group"><a href="travel.html" class="nav-link">Travel & Tourism</a><div class="nav-travel-dropdown"><a href="flights.html">Flights</a><a href="hotels.html">Hotels & Accommodation</a><a href="transfers.html">Airport Transfers</a></div></div><div class="nav-travel-dropdown"><a href="flights.html">Flights</a><a href="hotels.html">Hotels & Accommodation</a><a href="transfers.html">Airport Transfers</a></div></div><div class="nav-travel-dropdown"><a href="flights.html">Flights</a><a href="hotels.html">Hotels & Accommodation</a><a href="transfers.html">Airport Transfers</a></div></div><a href="tours.html" class="nav-link">Tours & Packages</a><a href="events.html" class="nav-link">Events & Expo</a><a href="business.html" class="nav-link">Business & Partnerships</a><a href="resources.html" class="nav-link">Resources</a><a href="contact.html" class="nav-cta">Contact</a></div></div></nav></header>
-<main><section class="section portal-hero transfer-portal-hero"><div class="container portal-hero-content"><span class="eyebrow light">AIRPORT TRANSFERS</span><h1>Arrive with less <em>friction.</em></h1><p>Plan airport pickup, hotel drop-off and shuttle journeys. Live vehicle options appear after a transfer provider is connected.</p></div></section><section class="section booking-page-section"><div class="container booking-page-grid"><div class="booking-page-main"><div class="booking-shell dedicated-search-shell"><form id="dedicatedTransferSearchForm" class="booking-form"><div class="form-row booking-form-row"><div class="form-group"><label for="dedicatedPickup">Pickup location</label><input id="dedicatedPickup" name="pickupLocation" placeholder="Airport, hotel or address" required></div><div class="form-group"><label for="dedicatedDropoff">Drop-off location</label><input id="dedicatedDropoff" name="dropoffLocation" placeholder="Airport, hotel or address" required></div></div><div class="form-row booking-form-row"><div class="form-group"><label for="dedicatedTransferDate">Date</label><input id="dedicatedTransferDate" type="date" name="date" required></div><div class="form-group"><label for="dedicatedTransferTime">Pickup time</label><input id="dedicatedTransferTime" type="time" name="time" required></div></div><div class="form-row booking-form-row"><div class="form-group"><label for="dedicatedPassengers">Passengers</label><select id="dedicatedPassengers" name="passengers"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></div><div class="form-group"><label for="dedicatedLuggage">Luggage</label><select id="dedicatedLuggage" name="luggage"><option value="0">0</option><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div><div class="form-group"><label for="dedicatedVehicle">Vehicle</label><select id="dedicatedVehicle" name="vehicleType"><option value="standard">Standard</option><option value="executive">Executive</option><option value="van">Van</option></select></div></div><button class="btn btn-primary booking-submit-btn" type="submit">Search Transfers</button></form></div><div id="dedicatedTransferResults" class="booking-results dedicated-results" aria-live="polite"><div class="booking-empty-state"><h4>Transfer search is ready</h4><p>Complete the form to check the provider connection. No taxi prices or availability are invented.</p></div></div></div><aside class="portal-aside"><div class="portal-aside-card"><span class="eyebrow">YOUR ARRIVAL</span><h3>Move smoothly between airport and stay.</h3><p>Choose a vehicle after provider results arrive, then continue into customer details and secure review.</p><ul class="portal-checklist"><li>Airport and hotel pickup</li><li>Passenger and luggage details</li><li>Standard, executive and van options</li><li>No fake live prices</li></ul></div></aside></div></section></main>
-<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a href="index.html" class="logo footer-logo"><div class="logo-mark"><span>W</span><span>N</span></div><div class="logo-text"><strong>Welcome to</strong><span>NIGERIA</span></div></a><p>Travel. Tourism. Events. Business. Discover Nigeria with us.</p></div><div class="footer-column"><h4>Travel</h4><a href="flights.html">Flights</a><a href="hotels.html">Hotels & Accommodation</a><a href="transfers.html">Airport Transfers</a></div><div class="footer-column"><h4>Explore</h4><a href="explore.html">Explore Nigeria</a><a href="tours.html">Tours & Packages</a><a href="contact.html">Contact</a></div><div class="footer-column"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms & Conditions</a><a href="refund.html">Refund & Cancellation</a></div></div><div class="footer-bottom"><p>© 2026 Welcome to Nigeria Ltd. All Rights Reserved.</p><p>Abuja, Federal Capital Territory, Nigeria</p></div></div></footer><div class="toast" id="toast"><span class="toast-icon">✓</span><div><strong id="toastTitle">Submitted</strong><p id="toastMessage">Your request has been submitted.</p></div></div><script src="script.js"></script><script src="travel-pages.js"></script></body></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airport Transfers | Welcome to Nigeria</title>
+    <meta
+      name="description"
+      content="Search airport pickup and transfer options through Welcome to Nigeria's provider-ready travel portal."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header" id="header">
+      <div class="top-bar">
+        <div class="container top-bar-content">
+          <div class="top-info">
+            <span>Discover Nigeria</span><span class="top-divider">|</span
+            ><span>Travel • Tourism • Business • Events</span>
+          </div>
+          <div class="top-contact">
+            <a href="tel:+2348096430859">+234 809 643 0859</a
+            ><a href="mailto:info@welcometonigerialtd.org"
+              >info@welcometonigerialtd.org</a
+            >
+          </div>
+        </div>
+      </div>
+      <nav class="navbar">
+        <div class="container nav-content">
+          <a href="index.html" class="logo"
+            ><div class="logo-mark"><span>W</span><span>N</span></div>
+            <div class="logo-text">
+              <strong>Welcome to</strong><span>NIGERIA</span>
+            </div></a
+          ><button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+          <div class="nav-menu" id="navMenu">
+            <a href="index.html" class="nav-link">Home</a
+            ><a href="about.html" class="nav-link">About</a
+            ><a href="explore.html" class="nav-link">Explore Nigeria</a>
+            <div class="nav-travel-group">
+              <div class="nav-travel-group">
+                <div class="nav-travel-group">
+                  <a href="travel.html" class="nav-link">Travel & Tourism</a>
+                  <div class="nav-travel-dropdown">
+                    <a href="flights.html">Flights</a
+                    ><a href="hotels.html">Hotels & Accommodation</a
+                    ><a href="transfers.html">Airport Transfers</a>
+                  </div>
+                </div>
+                <div class="nav-travel-dropdown">
+                  <a href="flights.html">Flights</a
+                  ><a href="hotels.html">Hotels & Accommodation</a
+                  ><a href="transfers.html">Airport Transfers</a>
+                </div>
+              </div>
+              <div class="nav-travel-dropdown">
+                <a href="flights.html">Flights</a
+                ><a href="hotels.html">Hotels & Accommodation</a
+                ><a href="transfers.html">Airport Transfers</a>
+              </div>
+            </div>
+            <a href="tours.html" class="nav-link">Tours & Packages</a
+            ><a href="events.html" class="nav-link">Events & Expo</a
+            ><a href="business.html" class="nav-link">Business & Partnerships</a
+            ><a href="resources.html" class="nav-link">Resources</a
+            ><a href="contact.html" class="nav-cta">Contact</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="section portal-hero transfer-portal-hero">
+        <div class="container portal-hero-content">
+          <span class="eyebrow light">AIRPORT TRANSFERS</span>
+          <h1>Arrive with less <em>friction.</em></h1>
+          <p>
+            Plan airport pickup, hotel drop-off and shuttle journeys. Live
+            vehicle options appear after a transfer provider is connected.
+          </p>
+        </div>
+      </section>
+      <section class="section booking-page-section">
+        <div class="container booking-page-grid">
+          <div class="booking-page-main">
+            <div class="booking-shell dedicated-search-shell">
+              <form id="dedicatedTransferSearchForm" class="booking-form">
+                <div class="form-row booking-form-row">
+                  <div class="form-group">
+                    <label for="dedicatedPickup">Pickup location</label
+                    ><input
+                      id="dedicatedPickup"
+                      name="pickupLocation"
+                      placeholder="Airport, hotel or address"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="dedicatedDropoff">Drop-off location</label
+                    ><input
+                      id="dedicatedDropoff"
+                      name="dropoffLocation"
+                      placeholder="Airport, hotel or address"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-row booking-form-row">
+                  <div class="form-group">
+                    <label for="dedicatedTransferDate">Date</label
+                    ><input
+                      id="dedicatedTransferDate"
+                      type="date"
+                      name="date"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="dedicatedTransferTime">Pickup time</label
+                    ><input
+                      id="dedicatedTransferTime"
+                      type="time"
+                      name="time"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-row booking-form-row">
+                  <div class="form-group">
+                    <label for="dedicatedPassengers">Passengers</label
+                    ><select id="dedicatedPassengers" name="passengers">
+                      <option value="1">1</option>
+                      <option value="2" selected>2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="dedicatedLuggage">Luggage</label
+                    ><select id="dedicatedLuggage" name="luggage">
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2" selected>2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="dedicatedVehicle">Vehicle</label
+                    ><select id="dedicatedVehicle" name="vehicleType">
+                      <option value="standard">Standard</option>
+                      <option value="executive">Executive</option>
+                      <option value="van">Van</option>
+                    </select>
+                  </div>
+                </div>
+                <button
+                  class="btn btn-primary booking-submit-btn"
+                  type="submit"
+                >
+                  Search Transfers
+                </button>
+              </form>
+            </div>
+            <div
+              id="dedicatedTransferResults"
+              class="booking-results dedicated-results"
+              aria-live="polite"
+            >
+              <div class="booking-empty-state">
+                <h4>Transfer search is ready</h4>
+                <p>
+                  Complete the form to check the provider connection. No taxi
+                  prices or availability are invented.
+                </p>
+              </div>
+            </div>
+          </div>
+          <aside class="portal-aside">
+            <div class="portal-aside-card">
+              <span class="eyebrow">YOUR ARRIVAL</span>
+              <h3>Move smoothly between airport and stay.</h3>
+              <p>
+                Choose a vehicle after provider results arrive, then continue
+                into customer details and secure review.
+              </p>
+              <ul class="portal-checklist">
+                <li>Airport and hotel pickup</li>
+                <li>Passenger and luggage details</li>
+                <li>Standard, executive and van options</li>
+                <li>No fake live prices</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="logo footer-logo"
+              ><div class="logo-mark"><span>W</span><span>N</span></div>
+              <div class="logo-text">
+                <strong>Welcome to</strong><span>NIGERIA</span>
+              </div></a
+            >
+            <p>Travel. Tourism. Events. Business. Discover Nigeria with us.</p>
+          </div>
+          <div class="footer-column">
+            <h4>Travel</h4>
+            <a href="flights.html">Flights</a
+            ><a href="hotels.html">Hotels & Accommodation</a
+            ><a href="transfers.html">Airport Transfers</a>
+          </div>
+          <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="explore.html">Explore Nigeria</a
+            ><a href="tours.html">Tours & Packages</a
+            ><a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <a href="privacy.html">Privacy Policy</a
+            ><a href="terms.html">Terms & Conditions</a
+            ><a href="refund.html">Refund & Cancellation</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Welcome to Nigeria Ltd. All Rights Reserved.</p>
+          <p>Abuja, Federal Capital Territory, Nigeria</p>
+        </div>
+      </div>
+    </footer>
+    <div class="toast" id="toast">
+      <span class="toast-icon">✓</span>
+      <div>
+        <strong id="toastTitle">Submitted</strong>
+        <p id="toastMessage">Your request has been submitted.</p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="travel-pages.js"></script>
+  </body>
+</html>

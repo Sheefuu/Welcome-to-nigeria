@@ -5,6 +5,58 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    const travelLogo = "Travellogo.jpeg";
+    document.querySelectorAll(".logo").forEach(logo => {
+        const existingImage = logo.querySelector("img");
+        if (existingImage) {
+            existingImage.classList.add("logo-image");
+            existingImage.classList.remove("logo-mark");
+            return;
+        }
+        logo.innerHTML = `<img class="logo-image" src="${travelLogo}" alt="Welcome to Nigeria logo">`;
+    });
+
+    const nigerianStates = [
+        "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa",
+        "Benue", "Borno", "Cross River", "Delta", "Ebonyi", "Edo",
+        "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano",
+        "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa", "Niger",
+        "Ogun", "Ondo", "Osun", "Oyo", "Plateau", "Rivers", "Sokoto",
+        "Taraba", "Yobe", "Zamfara", "Abuja (Federal Capital Territory)"
+    ];
+    const nigerianLocations = [
+        ...nigerianStates.map(state => `${state}, Nigeria`),
+        "Abuja (ABV)", "Lagos (LOS)", "Port Harcourt (PHC)", "Kano (KAN)",
+        "Enugu (ENU)", "Benin City (BNI)", "Calabar (CBQ)", "Uyo (QUO)",
+        "Owerri (QOW)", "Asaba (ABB)", "Akure (AKR)", "Ilorin (ILR)",
+        "Jos (JOS)", "Kaduna (KAD)", "Maiduguri (MIU)", "Yola (YOL)",
+        "Sokoto (SKO)", "Katsina (DKA)", "Gombe (GMO)", "Makurdi (MDI)",
+        "Bauchi (BCU)", "Ibadan (IBA)", "Warri (QRW)", "Birnin Kebbi",
+        "Abeokuta", "Onitsha", "Aba", "Awka", "Lokoja", "Minna", "Ado-Ekiti",
+        "Ikeja", "Victoria Island", "Lekki", "Yenagoa", "Damaturu", "Jalingo",
+        "Dubai (DXB)", "London (LHR)", "Accra (ACC)"
+    ];
+    let locationOptions = document.getElementById("airportOptions");
+    const locationInputs = ["dedicatedFlightOrigin", "dedicatedFlightDestination", "dedicatedPickup", "dedicatedDropoff", "dedicatedHotelDestination"]
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+    if (!locationOptions && locationInputs.length) {
+        locationOptions = document.createElement("datalist");
+        locationOptions.id = "airportOptions";
+        document.body.append(locationOptions);
+    }
+    if (locationOptions) {
+        const existing = new Set(Array.from(locationOptions.options, option => option.value));
+        nigerianLocations.forEach(location => {
+            if (existing.has(location)) return;
+            locationOptions.append(new Option(location, location));
+        });
+    }
+    locationInputs.forEach(input => {
+        if (!locationOptions) return;
+        input.setAttribute("list", "airportOptions");
+    });
+
     /* =====================================================
        MOBILE NAVIGATION
     ===================================================== */
