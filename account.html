@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Account | Welcome to Nigeria</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="auth-page">
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="container nav-content">
+          <a href="index.html" class="logo"
+            ><img
+              src="Travelogo.png"
+              class="logo-image"
+              alt="Welcome to Nigeria Logo"
+          /></a>
+          <div class="auth-simple-nav">
+            <a href="index.html">Home</a
+            ><a href="explore.html">Explore Nigeria</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="auth-shell" data-account-page>
+      <section class="auth-panel account-panel">
+        <div id="accountSignedOut" class="account-signed-out" hidden>
+          <span class="eyebrow">ACCOUNT</span>
+          <h1>Your account is <em>waiting.</em></h1>
+          <p>Please sign in to view and manage your account.</p>
+          <a class="btn btn-primary" href="signin.html">Sign In</a>
+        </div>
+        <div id="accountContent">
+          <div class="auth-intro">
+            <span class="eyebrow">MY ACCOUNT</span>
+            <h1>Welcome, <em data-auth-name>traveller.</em></h1>
+            <p>
+              Your profile is ready for future travel planning and connected
+              services.
+            </p>
+          </div>
+          <div class="account-grid">
+            <div class="account-detail">
+              <span class="account-detail-label">Name</span
+              ><strong data-auth-name>Guest traveller</strong>
+            </div>
+            <div class="account-detail">
+              <span class="account-detail-label">Email address</span
+              ><strong data-auth-email>No account is signed in.</strong>
+            </div>
+            <div class="account-detail">
+              <span class="account-detail-label">Phone number</span
+              ><strong data-auth-phone>Not provided</strong>
+            </div>
+            <div class="account-detail">
+              <span class="account-detail-label">Profile status</span
+              ><strong>Active profile</strong>
+            </div>
+          </div>
+          <div class="account-actions">
+            <a class="btn btn-primary" href="contact.html">Plan an Enquiry</a
+            ><button
+              class="btn btn-outline account-logout"
+              type="button"
+              data-account-logout
+            >
+              Log Out
+            </button>
+          </div>
+          <p class="auth-demo-note">
+            Keep your account information up to date for future bookings and
+            enquiries.
+          </p>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

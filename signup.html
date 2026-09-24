@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Your Account | Welcome to Nigeria</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="auth-page">
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="container nav-content">
+          <a href="index.html" class="logo"
+            ><img
+              src="Travelogo.png"
+              class="logo-image"
+              alt="Welcome to Nigeria Logo"
+          /></a>
+          <div class="auth-simple-nav">
+            <a href="index.html">Home</a><a href="signin.html">Sign in</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="auth-shell">
+      <section class="auth-panel">
+        <div class="auth-intro">
+          <span class="eyebrow">WELCOME TO NIGERIA</span>
+          <h1>Create your <em>account.</em></h1>
+          <p>Join us to explore, plan, and book your Nigeria experience.</p>
+        </div>
+        <form
+          class="auth-form"
+          id="signupForm"
+          action="/api/signup"
+          method="post"
+          novalidate
+        >
+          <div class="auth-form-grid">
+            <label class="auth-field"
+              ><span>First Name</span
+              ><input
+                name="firstName"
+                type="text"
+                autocomplete="given-name"
+                required /></label
+            ><label class="auth-field"
+              ><span>Last Name</span
+              ><input
+                name="lastName"
+                type="text"
+                autocomplete="family-name"
+                required
+            /></label>
+          </div>
+          <label class="auth-field"
+            ><span>Email Address</span
+            ><input
+              name="email"
+              type="email"
+              autocomplete="email"
+              required /></label
+          ><label class="auth-field"
+            ><span>Phone Number <small>(optional)</small></span
+            ><input name="phone" type="tel" autocomplete="tel" /></label
+          ><label class="auth-field"
+            ><span>Password</span>
+            <div class="auth-input-action">
+              <input
+                id="signupPassword"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                required
+              /><button
+                type="button"
+                data-toggle-password="signupPassword"
+                aria-pressed="false"
+              >
+                Show
+              </button>
+            </div></label
+          >
+          <div class="auth-strength">
+            <div
+              id="passwordStrengthMeter"
+              class="password-strength"
+              data-level="0"
+            ></div>
+            <span id="passwordStrengthLabel"></span>
+          </div>
+          <label class="auth-field"
+            ><span>Confirm Password</span>
+            <div class="auth-input-action">
+              <input
+                id="signupConfirmPassword"
+                name="confirmPassword"
+                type="password"
+                autocomplete="new-password"
+                required
+              /><button
+                type="button"
+                data-toggle-password="signupConfirmPassword"
+                aria-pressed="false"
+              >
+                Show
+              </button>
+            </div></label
+          ><label class="auth-check"
+            ><input name="terms" type="checkbox" required /><span
+              >I agree to the <a href="terms.html">Terms & Conditions</a> and
+              <a href="privacy.html">Privacy Policy</a>.</span
+            ></label
+          >
+          <div
+            id="signupMessage"
+            class="auth-message"
+            role="status"
+            hidden
+          ></div>
+          <button class="btn btn-primary auth-submit" type="submit">
+            Create Account
+          </button>
+          <p class="auth-switch">
+            Already have an account? <a href="signin.html">Sign in</a>
+          </p>
+          <p class="auth-demo-note">
+            Your information is handled securely and used to create your
+            account.
+          </p>
+        </form>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
