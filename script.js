@@ -190,8 +190,260 @@ document.addEventListener("DOMContentLoaded", () => {
        DESTINATION FILTER
     ===================================================== */
 
+  const extraDestinations = [
+    [
+      "Abia",
+      "culture",
+      "SOUTHEAST NIGERIA",
+      "Culture, crafts and welcoming city experiences.",
+      "image-calabar",
+    ],
+    [
+      "Adamawa",
+      "nature",
+      "NORTHEAST NIGERIA",
+      "Highland scenery, peaceful landscapes and outdoor discovery.",
+      "image-plateau",
+    ],
+    [
+      "Akwa Ibom",
+      "nature",
+      "SOUTH-SOUTH NIGERIA",
+      "Coastal views, food, culture and warm hospitality.",
+      "image-port",
+    ],
+    [
+      "Anambra",
+      "culture",
+      "SOUTHEAST NIGERIA",
+      "Heritage, markets and the energy of southeastern Nigeria.",
+      "image-enugu",
+    ],
+    [
+      "Bauchi",
+      "nature",
+      "NORTHEAST NIGERIA",
+      "Open landscapes, wildlife and memorable natural escapes.",
+      "image-plateau",
+    ],
+    [
+      "Bayelsa",
+      "nature",
+      "NIGER DELTA",
+      "Waterways, mangroves and the distinctive life of the Delta.",
+      "image-port",
+    ],
+    [
+      "Benue",
+      "culture",
+      "CENTRAL NIGERIA",
+      "Rich food traditions, festivals and cultural connections.",
+      "image-calabar",
+    ],
+    [
+      "Borno",
+      "heritage",
+      "NORTHEAST NIGERIA",
+      "Deep heritage, resilient communities and historic traditions.",
+      "image-kano",
+    ],
+    [
+      "Delta",
+      "nature",
+      "SOUTH-SOUTH NIGERIA",
+      "River landscapes, city life and coastal experiences.",
+      "image-port",
+    ],
+    [
+      "Ebonyi",
+      "nature",
+      "SOUTHEAST NIGERIA",
+      "Rolling scenery, local food and a slower travel rhythm.",
+      "image-plateau",
+    ],
+    [
+      "Edo",
+      "heritage",
+      "SOUTHERN NIGERIA",
+      "Royal history, art, craft and the story of Benin City.",
+      "image-oyo",
+    ],
+    [
+      "Ekiti",
+      "nature",
+      "SOUTHWEST NIGERIA",
+      "Hills, waterfalls and a refreshing highland atmosphere.",
+      "image-plateau",
+    ],
+    [
+      "Gombe",
+      "nature",
+      "NORTHEAST NIGERIA",
+      "Rock formations, open skies and northern landscapes.",
+      "image-kano",
+    ],
+    [
+      "Imo",
+      "culture",
+      "SOUTHEAST NIGERIA",
+      "Food, music, community and lively southeastern culture.",
+      "image-enugu",
+    ],
+    [
+      "Jigawa",
+      "heritage",
+      "NORTHWEST NIGERIA",
+      "Traditional craft, heritage and northern hospitality.",
+      "image-kano",
+    ],
+    [
+      "Katsina",
+      "heritage",
+      "NORTHWEST NIGERIA",
+      "Historic architecture, craft and enduring traditions.",
+      "image-kano",
+    ],
+    [
+      "Kebbi",
+      "nature",
+      "NORTHWEST NIGERIA",
+      "River scenery, fishing traditions and open landscapes.",
+      "image-port",
+    ],
+    [
+      "Kogi",
+      "heritage",
+      "CENTRAL NIGERIA",
+      "Confluence landscapes, hills and historic communities.",
+      "image-plateau",
+    ],
+    [
+      "Kwara",
+      "culture",
+      "NORTH CENTRAL NIGERIA",
+      "Arts, craft, food and the heritage of Ilorin.",
+      "image-oyo",
+    ],
+    [
+      "Nasarawa",
+      "nature",
+      "NORTH CENTRAL NIGERIA",
+      "Hills, waterfalls and quiet nature escapes near Abuja.",
+      "image-plateau",
+    ],
+    [
+      "Niger",
+      "heritage",
+      "NORTH CENTRAL NIGERIA",
+      "Historic landscapes, waterways and cultural discovery.",
+      "image-kano",
+    ],
+    [
+      "Ogun",
+      "culture",
+      "SOUTHWEST NIGERIA",
+      "Heritage, art, food and easy access from Lagos.",
+      "image-lagos",
+    ],
+    [
+      "Ondo",
+      "nature",
+      "SOUTHWEST NIGERIA",
+      "Hills, forests, caves and memorable outdoor discovery.",
+      "image-plateau",
+    ],
+    [
+      "Osun",
+      "heritage",
+      "SOUTHWEST NIGERIA",
+      "Sacred groves, festivals and deep Yoruba heritage.",
+      "image-oyo",
+    ],
+    [
+      "Taraba",
+      "nature",
+      "NORTHEAST NIGERIA",
+      "Mountain scenery, wildlife and wide open landscapes.",
+      "image-plateau",
+    ],
+    [
+      "Yobe",
+      "heritage",
+      "NORTHEAST NIGERIA",
+      "Ancient landscapes, culture and northern traditions.",
+      "image-kano",
+    ],
+    [
+      "Zamfara",
+      "heritage",
+      "NORTHWEST NIGERIA",
+      "Craft, history and the warmth of northwestern communities.",
+      "image-kano",
+    ],
+  ];
+
+  const extraDestinationContainer = document.querySelector(
+    "[data-extra-destinations]",
+  );
+  if (extraDestinationContainer) {
+    extraDestinationContainer.replaceWith(
+      ...extraDestinations.map(
+        ([name, category, region, description, imageClass]) => {
+          const slug = name.toLowerCase().replace(/\s+/g, "-");
+          const card = document.createElement("article");
+          card.className = "destination-card destination-card-extra";
+          card.dataset.category = category;
+          card.setAttribute("aria-hidden", "true");
+          card.innerHTML = `
+          <div class="destination-image ${imageClass}">
+            <span class="destination-tag">${category}</span>
+          </div>
+          <div class="destination-body">
+            <span class="destination-location">${region}</span>
+            <h3>${name}</h3>
+            <p>${description}</p>
+            <a class="card-link" href="destination.html?destination=${slug}">Discover ${name} →</a>
+          </div>`;
+          return card;
+        },
+      ),
+    );
+  }
+
   const filterButtons = document.querySelectorAll(".filter-btn");
   const destinationCards = document.querySelectorAll(".destination-card");
+  const destinationToggle = document.getElementById("destinationToggle");
+  let destinationsExpanded = false;
+
+  const updateDestinationCards = (filter = "all") => {
+    destinationCards.forEach((card) => {
+      const matchesFilter =
+        filter === "all" || card.dataset.category === filter;
+      const isExtra = card.classList.contains("destination-card-extra");
+      const shouldShow = matchesFilter && (!isExtra || destinationsExpanded);
+      card.classList.toggle("is-filtered-out", !matchesFilter);
+      card.classList.toggle("is-collapsed", !shouldShow);
+      card.setAttribute("aria-hidden", String(!shouldShow));
+    });
+  };
+
+  if (destinationToggle) {
+    destinationToggle.addEventListener("click", () => {
+      destinationsExpanded = !destinationsExpanded;
+      destinationToggle.textContent = destinationsExpanded
+        ? "See Less"
+        : "See More";
+      destinationToggle.setAttribute(
+        "aria-expanded",
+        String(destinationsExpanded),
+      );
+      updateDestinationCards(
+        document.querySelector(".filter-btn.active")?.dataset.filter || "all",
+      );
+    });
+  }
+
+  updateDestinationCards();
 
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -203,15 +455,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const filter = button.dataset.filter;
 
-      destinationCards.forEach((card) => {
-        const category = card.dataset.category;
-
-        if (filter === "all" || category === filter) {
-          card.classList.remove("hidden");
-        } else {
-          card.classList.add("hidden");
-        }
-      });
+      updateDestinationCards(filter);
     });
   });
 
@@ -352,6 +596,272 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  /* =====================================================
+       DESTINATION DETAIL PAGE
+    ===================================================== */
+
+  const destinationDetail = document.querySelector("[data-destination-detail]");
+  const destinationGuides = {
+    lagos: {
+      name: "Lagos",
+      region: "Southwest Nigeria",
+      image:
+        "https://images.unsplash.com/photo-1568428494232-9b5b3f2e9b18?auto=format&fit=crop&w=1800&q=85",
+      summary:
+        "A bold coastal city where creativity, culture, business and nightlife meet the Atlantic.",
+      introTitle: "Find energy, culture and coastal escapes.",
+      intro:
+        "Lagos is Nigeria's busiest cultural and creative hub. Spend time between historic neighbourhoods, contemporary art, music, beaches and restaurants that keep the city moving.",
+      best: "Culture, food and city life",
+      style: "Urban escapes and coastal weekends",
+      places: [
+        [
+          "Victoria Island",
+          "Restaurants, galleries, beaches and the citys modern waterfront energy.",
+        ],
+        [
+          "Lagos Island",
+          "Explore historic landmarks, markets and the roots of the city.",
+        ],
+        [
+          "Lekki",
+          "Pair a relaxed coastal mood with art, dining and nature experiences.",
+        ],
+      ],
+      experiences: [
+        "Taste Nigerian dishes and contemporary cuisine across the city.",
+        "Discover live music, galleries, fashion and creative neighbourhoods.",
+        "Take a slower day by the coast with a beach or waterfront escape.",
+      ],
+      tips: [
+        "Plan extra time for traffic, especially around peak commuting hours.",
+        "Keep a flexible itinerary so you can make room for food, music and local recommendations.",
+        "Ask your accommodation team about current transport and neighbourhood guidance.",
+      ],
+    },
+    abuja: {
+      name: "Abuja",
+      region: "Federal Capital Territory",
+      image: "Abujacitygate.jpg",
+      summary:
+        "A spacious capital shaped by landmarks, hills, gardens, culture and a calm modern rhythm.",
+      introTitle: "See the capital from every angle.",
+      intro:
+        "Abuja brings together national landmarks, open green spaces, galleries, restaurants and a growing creative scene. It is an excellent base for a balanced city break.",
+      best: "Landmarks, nature and culture",
+      style: "Relaxed city breaks and events",
+      places: [
+        [
+          "Abuja City Gate",
+          "Begin with the landmark welcome to the Federal Capital Territory.",
+        ],
+        [
+          "Aso Rock",
+          "Take in the distinctive landscape that frames the capital.",
+        ],
+        [
+          "Millennium Park",
+          "Slow down among gardens and open spaces in the heart of Abuja.",
+        ],
+      ],
+      experiences: [
+        "Visit national landmarks and learn more about Nigerias capital.",
+        "Enjoy a relaxed food and coffee trail through the citys neighbourhoods.",
+        "Combine a city stay with a nature escape around the surrounding hills.",
+      ],
+      tips: [
+        "Abuja is spread out, so group nearby places together when planning each day.",
+        "Book ahead during conferences, expos and major national events.",
+        "Choose a trusted driver or transfer service for sightseeing days.",
+      ],
+    },
+    calabar: {
+      name: "Calabar",
+      region: "Cross River State",
+      image:
+        "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1800&q=85",
+      summary:
+        "A welcoming city of heritage, greenery, festivals and easy access to Cross River adventures.",
+      introTitle: "Slow down into heritage and nature.",
+      intro:
+        "Calabar offers a gentler pace, rich cultural history and a green setting. It is a strong choice for travellers who want history, community and outdoor discovery in one trip.",
+      best: "Heritage, festivals and nature",
+      style: "Cultural stays and soft adventure",
+      places: [
+        [
+          "Old Residency Museum",
+          "Connect with the citys colonial-era history and stories.",
+        ],
+        [
+          "Marina Resort",
+          "Enjoy waterfront atmosphere and a relaxed city evening.",
+        ],
+        ["Kwa Falls", "Take a nature-focused outing beyond the city centre."],
+      ],
+      experiences: [
+        "Explore local history, food and cultural storytelling.",
+        "Plan a festival-focused trip around Calabars celebrated events.",
+        "Pair the city with rainforest, waterfalls or wildlife experiences in Cross River.",
+      ],
+      tips: [
+        "Check seasonal conditions before planning waterfall or rainforest outings.",
+        "Leave room for local guides who can add context to heritage sites.",
+        "Pack light rain protection for outdoor days.",
+      ],
+    },
+    kano: {
+      name: "Kano",
+      region: "Northern Nigeria",
+      image:
+        "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1800&q=85",
+      summary:
+        "A historic northern city known for heritage, craft, markets and deep commercial traditions.",
+      introTitle: "Walk through living history.",
+      intro:
+        "Kano is one of Nigerias great historic cities. Its markets, architecture and craft traditions offer a direct connection to the depth and diversity of northern Nigerian culture.",
+      best: "Heritage, craft and markets",
+      style: "Cultural discovery and city stays",
+      places: [
+        [
+          "Kano City Walls",
+          "See traces of the historic city and its long commercial story.",
+        ],
+        [
+          "Kurmi Market",
+          "Browse a lively marketplace filled with craft, textiles and local colour.",
+        ],
+        [
+          "Gidan Makama Museum",
+          "Spend time with artefacts and stories from Kano and northern Nigeria.",
+        ],
+      ],
+      experiences: [
+        "Shop for traditional textiles, leatherwork and locally made crafts.",
+        "Taste northern Nigerian dishes and learn the stories behind them.",
+        "Travel with a local guide to better understand the citys heritage.",
+      ],
+      tips: [
+        "Dress comfortably and respectfully for cultural and religious sites.",
+        "Start market visits earlier in the day for a cooler, calmer experience.",
+        "Carry small notes for local purchases and guide services.",
+      ],
+    },
+    plateau: {
+      name: "Plateau",
+      region: "Central Nigeria",
+      image:
+        "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1800&q=85",
+      summary:
+        "A highland destination of cooler air, dramatic scenery, waterfalls and outdoor discovery.",
+      introTitle: "Find a cooler side of Nigeria.",
+      intro:
+        "Plateau State is made for travellers who enjoy open landscapes and a slower outdoor rhythm. Its highlands create a refreshing contrast to Nigerias larger cities.",
+      best: "Scenery, nature and retreats",
+      style: "Outdoor breaks and scenic stays",
+      places: [
+        [
+          "Jos",
+          "Use the city as a base for highland culture, food and nearby escapes.",
+        ],
+        [
+          "Assop Falls",
+          "Enjoy one of the regions memorable natural viewpoints.",
+        ],
+        [
+          "Shere Hills",
+          "Look out across striking highland scenery and open skies.",
+        ],
+      ],
+      experiences: [
+        "Plan a scenic drive through the Jos highlands.",
+        "Take a guided outdoor walk and discover local landscapes.",
+        "Combine nature days with craft, culture and relaxed city dining.",
+      ],
+      tips: [
+        "Temperatures can feel cooler, especially in the evenings; pack a light layer.",
+        "Use local guidance for hiking and remote viewpoints.",
+        "Confirm road and weather conditions before longer day trips.",
+      ],
+    },
+    "port-harcourt": {
+      name: "Port Harcourt",
+      region: "Rivers State",
+      image:
+        "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85",
+      summary:
+        "A lively Rivers State gateway connecting business, culture, food and waterfront experiences.",
+      introTitle: "Meet the energy of the Niger Delta.",
+      intro:
+        "Port Harcourt is a confident city with strong business connections, vibrant entertainment and access to the wider Rivers State landscape.",
+      best: "City life, food and business",
+      style: "Urban stays and regional journeys",
+      places: [
+        [
+          "Port Harcourt City",
+          "Explore restaurants, shopping, arts and the citys social rhythm.",
+        ],
+        [
+          "Isaac Boro Park",
+          "Find a central green space and a place to pause between city outings.",
+        ],
+        [
+          "Bonny Island",
+          "Add a longer coastal journey for beaches, heritage and waterfront scenery.",
+        ],
+      ],
+      experiences: [
+        "Taste Rivers State flavours and explore the local food scene.",
+        "Connect a business visit with cultural and leisure time.",
+        "Plan a guided regional trip for waterfront and heritage experiences.",
+      ],
+      tips: [
+        "Arrange trusted local transport for trips beyond the city centre.",
+        "Allow extra time for regional travel and river crossings.",
+        "Check event calendars because the citys best experiences often follow what is happening now.",
+      ],
+    },
+  };
+
+  if (destinationDetail) {
+    const key =
+      new URLSearchParams(window.location.search).get("destination") || "lagos";
+    const guide = destinationGuides[key] || destinationGuides.lagos;
+    const setText = (selector, value) => {
+      const element = document.querySelector(selector);
+      if (element) element.textContent = value;
+    };
+    const heroImage = document.querySelector("[data-detail-hero]");
+    if (heroImage)
+      heroImage.style.backgroundImage = `linear-gradient(90deg, rgba(4, 27, 17, 0.78), rgba(4, 27, 17, 0.18)), url("${guide.image}")`;
+    document.title = `Explore ${guide.name} | Welcome to Nigeria`;
+    setText("[data-detail-name]", guide.name);
+    setText("[data-detail-region]", guide.region);
+    setText("[data-detail-summary]", guide.summary);
+    setText("[data-detail-intro-title]", guide.introTitle);
+    setText("[data-detail-intro]", guide.intro);
+    setText("[data-detail-best]", guide.best);
+    setText("[data-detail-style]", guide.style);
+    const places = document.querySelector("[data-detail-places]");
+    if (places)
+      places.innerHTML = guide.places
+        .map(
+          ([name, description], index) =>
+            `<article><span>0${index + 1}</span><h3>${name}</h3><p>${description}</p></article>`,
+        )
+        .join("");
+    const experiences = document.querySelector("[data-detail-experiences]");
+    if (experiences)
+      experiences.innerHTML = guide.experiences
+        .map(
+          (experience, index) =>
+            `<div><strong>0${index + 1}</strong><p>${experience}</p></div>`,
+        )
+        .join("");
+    const tips = document.querySelector("[data-detail-tips]");
+    if (tips)
+      tips.innerHTML = guide.tips.map((tip) => `<li>${tip}</li>`).join("");
+  }
 
   /* =====================================================
        TOAST
