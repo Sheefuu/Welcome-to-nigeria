@@ -4,7 +4,7 @@
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const travelLogo = "Travellogo.jpeg";
+  const travelLogo = "images/Travelogo.png";
   document.querySelectorAll(".logo").forEach((logo) => {
     const existingImage = logo.querySelector("img");
     if (existingImage) {
@@ -396,7 +396,6 @@ document.addEventListener("DOMContentLoaded", () => {
           card.setAttribute("aria-hidden", "true");
           card.innerHTML = `
           <div class="destination-image ${imageClass}">
-            <span class="destination-tag">${category}</span>
           </div>
           <div class="destination-body">
             <span class="destination-location">${region}</span>
@@ -410,18 +409,56 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  const filterButtons = document.querySelectorAll(".filter-btn");
+  const destinationGrid = document.querySelector(".destination-grid");
+  if (destinationGrid) {
+    const sortedCards = [
+      ...destinationGrid.querySelectorAll(".destination-card"),
+    ].sort((firstCard, secondCard) =>
+      firstCard
+        .querySelector("h3")
+        .textContent.trim()
+        .localeCompare(secondCard.querySelector("h3").textContent.trim()),
+    );
+    const stateCoverImages = {
+      adamawa: "images/adamawa1.jpeg",
+      crossriver: "images/crossriver1.jpeg",
+      edo: "images/edostate1.jpeg",
+      enugu: "images/enugu1.jpeg",
+      ondo: "images/ondostate1.jpeg",
+      oyo: "images/oyo1.jpeg",
+      plateau: "images/plateau1.jpeg",
+    };
+
+    sortedCards.forEach((card, index) => {
+      card.classList.toggle("destination-card-extra", index >= 6);
+      destinationGrid.append(card);
+
+      const stateName = card
+        .querySelector("h3")
+        .textContent.trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, "");
+      const coverImage = stateCoverImages[stateName];
+      const imageContainer = card.querySelector(".destination-image");
+
+      if (coverImage && imageContainer) {
+        imageContainer.classList.add("has-state-cover");
+        imageContainer.style.setProperty(
+          "--state-cover-image",
+          `url("${coverImage}")`,
+        );
+      }
+    });
+  }
+
   const destinationCards = document.querySelectorAll(".destination-card");
   const destinationToggle = document.getElementById("destinationToggle");
   let destinationsExpanded = false;
 
-  const updateDestinationCards = (filter = "all") => {
+  const updateDestinationCards = () => {
     destinationCards.forEach((card) => {
-      const matchesFilter =
-        filter === "all" || card.dataset.category === filter;
       const isExtra = card.classList.contains("destination-card-extra");
-      const shouldShow = matchesFilter && (!isExtra || destinationsExpanded);
-      card.classList.toggle("is-filtered-out", !matchesFilter);
+      const shouldShow = !isExtra || destinationsExpanded;
       card.classList.toggle("is-collapsed", !shouldShow);
       card.setAttribute("aria-hidden", String(!shouldShow));
     });
@@ -437,27 +474,11 @@ document.addEventListener("DOMContentLoaded", () => {
         "aria-expanded",
         String(destinationsExpanded),
       );
-      updateDestinationCards(
-        document.querySelector(".filter-btn.active")?.dataset.filter || "all",
-      );
+      updateDestinationCards();
     });
   }
 
   updateDestinationCards();
-
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      filterButtons.forEach((btn) => {
-        btn.classList.remove("active");
-      });
-
-      button.classList.add("active");
-
-      const filter = button.dataset.filter;
-
-      updateDestinationCards(filter);
-    });
-  });
 
   /* =====================================================
        MODAL SYSTEM
@@ -676,6 +697,43 @@ document.addEventListener("DOMContentLoaded", () => {
         "Choose a trusted driver or transfer service for sightseeing days.",
       ],
     },
+    anambra: {
+      name: "Anambra",
+      region: "Southeast Nigeria",
+      image:
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=85",
+      summary:
+        "Discover Igbo heritage, historic communities, lively markets and natural landmarks across Anambra State.",
+      introTitle: "Explore heritage and river-city life.",
+      intro:
+        "Anambra brings together important Igbo cultural sites, the commercial energy of Onitsha and distinctive natural places. Take time to explore with local guides and learn the stories behind each stop.",
+      best: "Heritage, markets and local culture",
+      style: "Cultural visits and regional city breaks",
+      places: [
+        [
+          "Ogbunike Caves",
+          "Explore a remarkable cave system surrounded by lush forest near Ogbunike.",
+        ],
+        [
+          "Onitsha Main Market",
+          "Experience the scale and energy of one of the region's best-known trading centres.",
+        ],
+        [
+          "Igbo-Ukwu",
+          "Learn about the area's archaeological heritage and celebrated early metalwork.",
+        ],
+      ],
+      experiences: [
+        "Visit cultural and historical sites with a knowledgeable local guide.",
+        "Explore Onitsha's markets and sample food from southeastern Nigeria.",
+        "Pair a city visit with a nature outing around Ogbunike or Agulu.",
+      ],
+      tips: [
+        "Arrange reliable local transport between towns and attractions.",
+        "Ask before taking photographs at markets and cultural sites.",
+        "Check opening details and local guidance before setting out for a full day.",
+      ],
+    },
     calabar: {
       name: "Calabar",
       region: "Cross River State",
@@ -823,17 +881,129 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
+  destinationGuides["cross-river"] = {
+    ...destinationGuides.calabar,
+    name: "Cross River",
+    region: "Cross River State",
+    summary:
+      "Explore Cross River State's rainforest, waterfalls, cultural heritage and welcoming communities.",
+    introTitle: "Discover rainforest, heritage and nature.",
+  };
+  destinationGuides.rivers = {
+    ...destinationGuides["port-harcourt"],
+    name: "Rivers",
+    region: "South-South Nigeria",
+    summary:
+      "Explore Rivers State's waterways, coastal communities, culture and the energy of Port Harcourt.",
+    introTitle: "Explore the waterways of Rivers State.",
+  };
+
+  const additionalStateCards = {
+    kaduna: [
+      "Kaduna",
+      "heritage",
+      "NORTHWEST NIGERIA",
+      "Discover history, art, markets and a varied urban culture.",
+      "image-kano",
+    ],
+    enugu: [
+      "Enugu",
+      "culture",
+      "SOUTHEAST NIGERIA",
+      "Discover a welcoming highland city with arts, history and memorable local experiences.",
+      "image-enugu",
+    ],
+    oyo: [
+      "Oyo",
+      "heritage",
+      "SOUTHWEST NIGERIA",
+      "Explore Yoruba heritage, historic places and living cultural traditions.",
+      "image-oyo",
+    ],
+    sokoto: [
+      "Sokoto",
+      "heritage",
+      "NORTHWEST NIGERIA",
+      "Discover heritage, culture and the distinctive spirit of northwestern Nigeria.",
+      "image-kano",
+    ],
+  };
+
+  const stateImageByClass = {
+    "image-lagos": destinationGuides.lagos.image,
+    "image-calabar": destinationGuides.calabar.image,
+    "image-kano": destinationGuides.kano.image,
+    "image-plateau": destinationGuides.plateau.image,
+    "image-port": destinationGuides["port-harcourt"].image,
+    "image-enugu":
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=85",
+    "image-oyo":
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1800&q=85",
+  };
+
+  const createStateGuide = (stateKey) => {
+    const stateCard =
+      extraDestinations.find(
+        ([name]) => name.toLowerCase().replace(/\s+/g, "-") === stateKey,
+      ) || additionalStateCards[stateKey];
+    const name = stateCard?.[0] || stateKey.replace(/-/g, " ");
+    const category = stateCard?.[1] || "culture";
+    const region = stateCard?.[2] || "NIGERIA";
+    const summary =
+      stateCard?.[3] ||
+      `Explore the culture, communities and landscapes of ${name}.`;
+    const imageClass = stateCard?.[4] || "image-enugu";
+    const bestFor = {
+      culture: "Culture, food and local experiences",
+      heritage: "History, heritage and local culture",
+      nature: "Nature, scenery and outdoor discovery",
+      city: "City life, culture and food",
+    };
+
+    return {
+      name,
+      region,
+      image: stateImageByClass[imageClass] || destinationGuides.lagos.image,
+      summary,
+      introTitle: `Discover ${name}.`,
+      intro: `${summary} Take time to explore with local guidance and learn about the people and places that make ${name} distinct.`,
+      best: bestFor[category] || "Culture and discovery",
+      style: "Local experiences and regional journeys",
+      places: [
+        [
+          `${name} heritage and culture`,
+          `Learn about the traditions and communities that shape ${name}.`,
+        ],
+        [
+          "Local markets and food",
+          `Explore local produce, crafts and food across ${name}.`,
+        ],
+        [
+          "Nature and local attractions",
+          `Discover the landscapes and attractions found across ${name}.`,
+        ],
+      ],
+      experiences: [
+        `Explore ${name} with a knowledgeable local guide.`,
+        `Try regional food and learn about local traditions in ${name}.`,
+        `Plan a day around the cultural or natural highlights of ${name}.`,
+      ],
+      tips: [
+        `Arrange reliable local transport when visiting places around ${name}.`,
+        "Check opening details and local guidance before setting out.",
+        "Ask permission before photographing people or cultural sites.",
+      ],
+    };
+  };
+
   if (destinationDetail) {
     const key =
       new URLSearchParams(window.location.search).get("destination") || "lagos";
-    const guide = destinationGuides[key] || destinationGuides.lagos;
+    const guide = destinationGuides[key] || createStateGuide(key);
     const setText = (selector, value) => {
       const element = document.querySelector(selector);
       if (element) element.textContent = value;
     };
-    const heroImage = document.querySelector("[data-detail-hero]");
-    if (heroImage)
-      heroImage.style.backgroundImage = `linear-gradient(90deg, rgba(4, 27, 17, 0.78), rgba(4, 27, 17, 0.18)), url("${guide.image}")`;
     document.title = `Explore ${guide.name} | Welcome to Nigeria`;
     setText("[data-detail-name]", guide.name);
     setText("[data-detail-region]", guide.region);
@@ -842,6 +1012,65 @@ document.addEventListener("DOMContentLoaded", () => {
     setText("[data-detail-intro]", guide.intro);
     setText("[data-detail-best]", guide.best);
     setText("[data-detail-style]", guide.style);
+
+    const photoGallery = document.querySelector("[data-destination-gallery]");
+    const photoGrid = document.querySelector("[data-detail-gallery]");
+    const galleryName = document.querySelector("[data-detail-gallery-name]");
+    if (photoGallery && photoGrid) {
+      const photoPrefixes =
+        key === "edo"
+          ? ["edostate"]
+          : key === "ondo"
+            ? ["ondostate", "ondo"]
+            : [key.replace(/[^a-z0-9]/gi, "")];
+
+      const loadNumberedPhoto = async (number) => {
+        for (const prefix of photoPrefixes) {
+          const image = new Image();
+          const source = `images/${prefix}${number}.jpeg`;
+          const loaded = await new Promise((resolve) => {
+            image.onload = () => resolve(true);
+            image.onerror = () => resolve(false);
+            image.src = source;
+          });
+          if (loaded) return image;
+        }
+        return null;
+      };
+
+      void (async () => {
+        const photos = (
+          await Promise.all(
+            Array.from({ length: 12 }, (_, index) =>
+              loadNumberedPhoto(index + 1),
+            ),
+          )
+        ).filter(Boolean);
+
+        if (!photos.length) return;
+
+        if (galleryName) galleryName.textContent = guide.name;
+        photos.forEach((image, index) => {
+          const [caption, description] = guide.places[index] || [
+            `${guide.name} view ${index + 1}`,
+            `A further view of ${guide.name}.`,
+          ];
+          const figure = document.createElement("figure");
+          const captionElement = document.createElement("figcaption");
+          const title = document.createElement("strong");
+          const details = document.createElement("p");
+
+          image.alt = `${guide.name}: ${caption}`;
+          title.textContent = caption;
+          details.textContent = description;
+          captionElement.append(title, details);
+          figure.append(image, captionElement);
+          photoGrid.append(figure);
+        });
+        photoGallery.hidden = false;
+      })();
+    }
+
     const places = document.querySelector("[data-detail-places]");
     if (places)
       places.innerHTML = guide.places

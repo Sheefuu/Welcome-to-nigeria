@@ -136,11 +136,11 @@ img {
 }
 
 .nav-content {
-  height: 82px;
+  height: 92px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
+  gap: 38px;
 }
 
 .logo {
@@ -148,6 +148,11 @@ img {
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
+  cursor: pointer;
+}
+
+.navbar .logo {
+  gap: 14px;
 }
 
 .logo-mark {
@@ -169,6 +174,26 @@ img {
   display: block;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.navbar .logo-image {
+  width: 58px;
+  height: 58px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(10, 30, 20, 0.2);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+.navbar .logo:hover .logo-image {
+  transform: scale(1.08) rotate(1deg);
+  box-shadow:
+    0 7px 20px rgba(10, 30, 20, 0.3),
+    0 0 0 3px rgba(201, 154, 62, 0.2);
+  filter: brightness(1.06);
 }
 
 .logo-mark span {
@@ -854,6 +879,12 @@ p {
   isolation: isolate;
 }
 
+.destination-image.has-state-cover {
+  background-image:
+    linear-gradient(180deg, rgba(10, 35, 30, 0.05), rgba(10, 35, 30, 0.55)),
+    var(--state-cover-image);
+}
+
 .image-lagos {
   background-image:
     linear-gradient(180deg, rgba(10, 35, 45, 0.05), rgba(10, 35, 45, 0.6)),
@@ -900,6 +931,12 @@ p {
   background-image:
     linear-gradient(180deg, rgba(90, 55, 25, 0.05), rgba(55, 30, 10, 0.65)),
     url("https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=900&q=85");
+}
+
+.image-oyo-cover {
+  background-image:
+    linear-gradient(180deg, rgba(90, 55, 25, 0.05), rgba(55, 30, 10, 0.65)),
+    url("images/oyo1.jpeg");
 }
 
 .image-cross-river {
@@ -2366,7 +2403,7 @@ p {
   }
 
   .nav-content {
-    height: 72px;
+    height: 78px;
   }
 
   .hero {
@@ -3274,34 +3311,30 @@ p {
 ========================================================= */
 
 .destination-detail-hero {
-  min-height: 610px;
+  min-height: 300px;
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--dark);
+  background: var(--primary-dark);
 }
 
 .destination-detail-hero-image {
-  position: absolute;
-  inset: 0;
-  background-position: center;
-  background-size: cover;
-  transform: scale(1.02);
+  display: none;
 }
 
 .destination-detail-hero-content {
   position: relative;
   z-index: 1;
   max-width: 760px;
-  padding: 110px 20px;
+  padding: 20px;
   color: var(--white);
 }
 
 .destination-detail-hero h1 {
   max-width: 720px;
   margin: 18px 0;
-  font-size: clamp(48px, 8vw, 92px);
+  font-size: clamp(44px, 6vw, 68px);
   line-height: 1.02;
 }
 
@@ -3364,6 +3397,53 @@ p {
 
 .destination-facts strong {
   font-size: 14px;
+}
+
+.destination-photo-gallery {
+  padding: 20px 0 60px;
+}
+
+.destination-photo-gallery .section-heading {
+  margin-bottom: 14px;
+}
+
+.destination-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.destination-photo-grid figure {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.destination-photo-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.destination-photo-grid figcaption {
+  padding: 16px 18px 18px;
+}
+
+.destination-photo-grid figcaption strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--primary-dark);
+  font-family: var(--font-heading);
+  font-size: 18px;
+}
+
+.destination-photo-grid figcaption p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .destination-place-grid {
@@ -3482,6 +3562,7 @@ p {
   }
 
   .destination-place-grid,
+  .destination-photo-grid,
   .experience-list {
     grid-template-columns: 1fr 1fr;
   }
@@ -3489,11 +3570,11 @@ p {
 
 @media (max-width: 600px) {
   .destination-detail-hero {
-    min-height: 560px;
+    min-height: 280px;
   }
 
   .destination-detail-hero-content {
-    padding: 82px 20px;
+    padding: 20px;
   }
 
   .destination-detail-hero p {
@@ -3502,6 +3583,7 @@ p {
 
   .destination-facts,
   .destination-place-grid,
+  .destination-photo-grid,
   .experience-list {
     grid-template-columns: 1fr;
   }
